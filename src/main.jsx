@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+// import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   HomeLayout,
@@ -10,6 +10,7 @@ import {
   Newsletter,
   Cocktail,
 } from './pages';
+import { loader as landingLoader } from './pages/Landing';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -20,7 +21,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: landingLoader,
         element: <Landing />,
+        errorElement: <h2>Loader In Landing Did Not Work</h2>,
       },
       {
         path: 'cocktail',
@@ -41,6 +44,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    <App />
+    {/* <App /> */}
   </React.StrictMode>
 );
