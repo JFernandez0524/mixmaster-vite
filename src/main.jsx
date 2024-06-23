@@ -9,8 +9,11 @@ import {
   Error,
   Newsletter,
   Cocktail,
+  SinglePageError,
 } from './pages';
 import { loader as landingLoader } from './pages/Landing';
+import { loader as singleCocktailLoader } from './pages/Cocktail';
+
 import './index.css';
 
 const router = createBrowserRouter([
@@ -23,11 +26,13 @@ const router = createBrowserRouter([
         index: true,
         loader: landingLoader,
         element: <Landing />,
-        errorElement: <h2>Loader In Landing Did Not Work</h2>,
+        errorElement: <SinglePageError />,
       },
       {
-        path: 'cocktail',
+        path: 'cocktail/:id',
+        loader: singleCocktailLoader,
         element: <Cocktail />,
+        errorElement: <SinglePageError />,
       },
       {
         path: 'newsletter',
