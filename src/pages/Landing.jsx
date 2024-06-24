@@ -18,7 +18,6 @@ const Landing = () => {
 
   return (
     <div>
-      Landing
       <SearchForm />
       <CocktailList drinks={drinks} />
     </div>
